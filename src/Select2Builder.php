@@ -8,12 +8,12 @@ use Illuminate\Support\Str;
 
 class Select2Builder
 {
-    protected string $gid;
-    public array $data;
-    public bool $allow_clear = true;
-    public bool $is_multiple = false;
-    public string $placeholder = '';
-    public string $width = '130';
+    protected $gid;
+    public $data;
+    public $allow_clear = true;
+    public $is_multiple = false;
+    public $placeholder = '';
+    public $width = '130';
 
     public function __construct($data){
         $this->setGid();
