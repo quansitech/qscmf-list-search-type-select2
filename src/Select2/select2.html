@@ -1,0 +1,66 @@
+<div class="form-group">
+  <div class="qs-list-search-select2">
+    <select id="{$gid}" style="width:{$select2_opt['width']}">
+      <php>if(!$select2_opt['multiple']):</php>
+      <option value="">----请选择----</option>
+      <php>endif;</php>
+      <volist name="options" id="option">
+        <php>if(isset($option['children'])):</php>
+        <optgroup label="{$option.text}">
+          <volist name="option.children" id="children_option" key="children_key">
+            <option value="{$children_option['id']}"  title="{$children_option['text']}" <present name='value'><in name='children_option.id' value='$value'> selected</in></present>>{$children_option['text']}</option>
+          </volist>
+        </optgroup>
+        <php>else:</php>
+        <option value="{$key}" title="{$option}" <present name='value'><in name='key' value='$value'> selected</in></present>>{$option}</option>
+        <php>endif;</php>
+      </volist>
+    </select>
+    <input type="hidden" id="{$gid}Input" class="form-control search-input" name="{$item.name}" value="{$value}" >
+  </div>
+</div>
+
+<notdefined name="qs_list_search_select2">
+  <link rel="stylesheet" href="{:asset('list_search_select2/select2.css')}">
+  <define name="qs_list_search_select2" value="1" />
+</notdefined>
+
+<notdefined name="select2">
+  <link rel="stylesheet" href="{:asset('libs/select2/css/select2.min.css')}">
+  <script type="text/javascript" src="{:asset('libs/select2/js/select2.full.min.js')}"></script>
+  <define name="select2" value="1" />
+</notdefined>
+
+<script type="text/javascript">
+  jQuery(document).ready(function (){
+    let select2Dom = $("#{$gid}");
+    let opt = {:json_encode($select2_opt)}
+    let selected = "{:$value}";
+
+    select2Dom.select2(opt);
+    initSelection(select2Dom, selected);
+
+    select2Dom.on('select2:select', function (e) {
+      setInputValueBySelection(select2Dom,$("#{$gid}Input"));
+    });
+
+    select2Dom.on('select2:unselect', function (e) {
+      setInputValueBySelection(select2Dom,$("#{$gid}Input"));
+    });
+
+    function setInputValueBySelection(select2Dom, inputDom) {
+      const selectedId = select2Dom.val();
+      let newVal = Array.isArray(selectedId) ? selectedId.filter(item => item).join(',') : selectedId;
+      inputDom.val(newVal);
+    }
+    
+    function initSelection(select2Dom, value) {
+      if (value){
+        select2Dom.val(value.split(',')).trigger('change');
+      }else{
+        select2Dom.val(null).trigger('change');
+      }
+    }
+  });
+
+</script>

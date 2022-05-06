@@ -1,0 +1,29 @@
+{
+    "name": "quansitech/qscmf-list-search-type-select2",
+    "description": "qscmf list builder search select2",
+    "keywords": ["qscmf", "component", "list", "search", "select2"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "xhiny",
+            "email": "axhiny@163.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "tiderjian/think-core": ">=11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Qs\\ListSearchType\\": "src/"
+        }
+    },
+    "extra": {
+        "qscmf": {
+            "providers": [
+                "Qs\\ListSearchType\\Select2Provider"
+            ]
+        }
+    }
+}
