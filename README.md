@@ -24,7 +24,7 @@ composer require quansitech/qscmf-list-search-type-select2
     
     ```
   
-  + 树形结构的数据格式
+  + 需要分组的数据格式
     ```php
     for ($i=1;$i<=5;$i++){
       $children = [];

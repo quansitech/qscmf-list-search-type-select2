@@ -13,7 +13,7 @@ class Select2Builder
     public bool $allow_clear = true;
     public bool $is_multiple = false;
     public string $placeholder = '';
-    public string $width = '250';
+    public string $width = '130';
 
     public function __construct($data){
         $this->setGid();

@@ -17,7 +17,7 @@ new Select2Builder($data);
   ```php
   $data = ['1' => '数据1', '3' => '数据3'];
   ```
-+ 含有子级数据
++ 分组数据
   ```php
   $data = [
     ['text' => '父级1', 'children' => [['id' => '1', 'text' => '子级11'],['id' => '2', 'text' => '子级12']]],
@@ -84,7 +84,7 @@ $is_multiple = true;
 
 #### setWidth
 ```text
-设置下拉框宽度，默认为250
+设置下拉框宽度，默认为130
 ```
 ```php
 // 参数说明
