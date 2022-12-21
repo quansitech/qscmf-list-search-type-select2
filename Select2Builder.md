@@ -71,7 +71,7 @@ $placeholder = "请选择";
 ->getPlaceholder()
 ```
 
-#### setMultiple
+#### setIsMultiple
 ```text
 设置多选，默认为false
 ```
@@ -79,7 +79,7 @@ $placeholder = "请选择";
 // 参数说明
 // bool $is_multiple 是否可以多选
 $is_multiple = true;
-->setMultiple($is_multiple)
+->setIsMultiple($is_multiple)
 ```
 
 #### setWidth

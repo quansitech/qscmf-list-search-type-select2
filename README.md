@@ -55,7 +55,7 @@ composer require quansitech/qscmf-list-search-type-select2
   // 该值为Select2Builder对象 
   $select2_obj = new Select2Builder($user_list);
   $select2_obj->setPlaceholder("请选择多选姓名");
-  $select2_obj->setMultiple(true);
+  $select2_obj->setIsMultiple(true);
   $select2_obj->setWidth("100");
   
   (new \Qscmf\Builder\ListBuilder())
