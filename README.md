@@ -62,3 +62,16 @@ composer require quansitech/qscmf-list-search-type-select2
   ->addSearchItem('select2_obj', 'select2', '多选姓名', $select2_obj)
   ->display();  
   ```  
+  
++ 快速拼接数据库查询条件
+
+  通过parse可快速从请求参数中组装数据库查询条件，而无需关心组件的数据格式
+
+  ```php
+  //$key 搜索栏name
+  //$map_key 数据库字段值
+  //$get_data $_GET数组
+  // 返回值
+  // [$map_key => $get_data[$key]]
+  $map = array_merge($map, \Qs\ListSearchType\Select2\Select2::parse('project_id', 'project_id', $get_data));
+  ```
